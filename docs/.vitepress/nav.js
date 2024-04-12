@@ -33,10 +33,10 @@ export function getNavs() {
       text: '项目',
       link: '/project/project'
     },
-    // {
-    //   text: "关于",
-    //   link: "/about/",
-    // },
+    {
+      text: "真实项目",
+      link: "/realProject/realProject",
+    },
 
     // {
     //   text: "GitHub",
@@ -47,8 +47,6 @@ export function getNavs() {
     //   text: "更新日志",
     //   link: "/changelog/",
     // },
-
-
 
   ]
 }

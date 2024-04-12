@@ -1,6 +1,9 @@
 ---
 outline: deep
 ---
+<script setup>
+import vueContext from '../../components/vuemd.js'
+</script>
 #### 路由的传参方式有哪些？
 #### Vue中怎么获得dom更新后的结果？
 
@@ -1335,6 +1338,8 @@ defineExpose（只参与编译，不参加运行，所以不需要导入）
 类似defineProps（只参与编译，不参加运行，所以不需要导入）
 ```
 
+#### Vue3的v-memo
 
+<Playground :files="vueContext.memo"/> 
 
 

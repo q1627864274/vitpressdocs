@@ -1,8 +1,8 @@
 <template>
-    <div v-if="isLoaded">
-      <Repl :store="store" :editor="CodeMirror"/>
-    </div>
-  </template>  
+  <div v-if="isLoaded">
+    <Repl :store="store" :editor="CodeMirror"/>
+  </div>
+</template>  
 <script setup>
 import { watchEffect, ref, onMounted, onUnmounted } from 'vue'
 
@@ -13,47 +13,58 @@ const store = ref(null)
 const isLoaded = ref(false) // 新增加载状态
 
 onMounted(async () => {
-  console.log('组件创建')
+console.log('组件创建')
 
-  // 同时动态导入依赖项
-  const [replModule, codeMirrorModule] = await Promise.all([
-    import('@vue/repl'),
-    import('@vue/repl/codemirror-editor')
-  ]);
+// 同时动态导入依赖项
+const [replModule, codeMirrorModule] = await Promise.all([
+  import('@vue/repl'),
+  import('@vue/repl/codemirror-editor')
+]);
 
-  // 设置加载的模块
-  Repl.value = replModule.Repl
-  store.value = replModule.useStore()
-  store.value.setFiles(props.files)
-  CodeMirror.value = codeMirrorModule.default
+// 设置加载的模块
+Repl.value = replModule.Repl
+store.value = replModule.useStore()
+store.value.setFiles(props.files)
+CodeMirror.value = codeMirrorModule.default
 
-  // 所有依赖加载完毕，更新加载状态
-  isLoaded.value = true
+// 所有依赖加载完毕，更新加载状态
+isLoaded.value = true
 })
 
 onUnmounted(() => {
-  console.log('组件销毁')
+console.log('组件销毁')
 })
 
 // 传进来的props
 const props = defineProps({
-  files: Object,
+files: Object,
 })
 </script>
 <style>
 .container .main .name {
-    max-width: 580px
+  max-width: 580px
 }
 .aside-container{
-    width: 590px !important;
+  width: 590px !important;
 }
 .content {
-    max-width: 850px !important;
+  max-width: 1280px !important;
+}
+.container {
+ margin: 0 !important;
+ justify-content: flex-start !important;
+ max-width: 100% !important;
+}
+.content-container {
+ max-width: 100% !important;
 }
 .split-pane {
-    height: 400px !important;
+  height: 400px !important;
 }
 .split-pane .right {
-    height: 100% !important
+  height: 100% !important
+}
+.content-container {
+
 }
 </style>

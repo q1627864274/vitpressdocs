@@ -24,13 +24,30 @@ features:
 ---
 
 <style>
-    .container .main .name {
-        max-width: 580px
-    }
-    .aside-container{
-        width: 590px !important;
-    }
-    .content {
-        max-width: 850px !important;
-    }
+.container .main .name {
+    max-width: 580px
+}
+.aside-container{
+    width: 590px !important;
+}
+.content {
+    max-width: 1280px !important;
+}
+.container {
+   margin: 0 !important;
+   justify-content: flex-start !important;
+   max-width: 100% !important;
+}
+.content-container {
+   max-width: 100% !important;
+}
+.split-pane {
+    height: 400px !important;
+}
+.split-pane .right {
+    height: 100% !important
+}
+.content-container {
+
+}
 </style>
